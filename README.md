@@ -64,14 +64,15 @@ Good first contributions: a reproduced bug with a failing test, a missing Arabic
 
 ## Docs
 
-| Topic                     | Where                                                    |
-| ------------------------- | -------------------------------------------------------- |
-| Product and architecture  | [docs/overview.md](docs/overview.md)                     |
-| File map                  | [docs/file-structure.md](docs/file-structure.md)         |
-| Environment and scripts   | [docs/deployment.md](docs/deployment.md)                 |
-| Spec / issue workflow     | [docs/agents/issue-tracker.md](docs/agents/issue-tracker.md) |
-| Decisions                 | [docs/adr/](docs/adr/)                                   |
-| Domain rules (accounting) | [.ai/rules/domain.md](.ai/rules/domain.md)               |
+| Topic                      | Where                                                        |
+| -------------------------- | ------------------------------------------------------------ |
+| **Current codebase atlas** | **[docs/reference/README.md](docs/reference/README.md)**     |
+| Product and architecture   | [docs/overview.md](docs/overview.md)                         |
+| File map (historical)      | [docs/file-structure.md](docs/file-structure.md)             |
+| Environment and scripts    | [docs/deployment.md](docs/deployment.md)                     |
+| Spec / issue workflow      | [docs/agents/issue-tracker.md](docs/agents/issue-tracker.md) |
+| Decisions                  | [docs/adr/](docs/adr/)                                       |
+| Domain rules (accounting)  | [.ai/rules/domain.md](.ai/rules/domain.md)                   |
 
 ## License
 

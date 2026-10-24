@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-label="CRUD request lifecycle">
+  
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.9" fill="#1e1e1e" opacity="0.09" />
+    </pattern>
+    <marker id="arrowhead-fbfaf7" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#fbfaf7" /></marker>
+    <marker id="arrowhead-1e1e1e" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e1e1e" /></marker>
+    <marker id="arrowhead-5f646b" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5f646b" /></marker>
+    <marker id="arrowhead-343a40" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#343a40" /></marker>
+    <marker id="arrowhead-d0ebff" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#d0ebff" /></marker>
+    <marker id="arrowhead-1971c2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1971c2" /></marker>
+    <marker id="arrowhead-d3f9d8" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#d3f9d8" /></marker>
+    <marker id="arrowhead-2f9e44" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2f9e44" /></marker>
+    <marker id="arrowhead-ffe8cc" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ffe8cc" /></marker>
+    <marker id="arrowhead-e8590c" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e8590c" /></marker>
+    <marker id="arrowhead-e5dbff" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e5dbff" /></marker>
+    <marker id="arrowhead-6741d9" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6741d9" /></marker>
+    <marker id="arrowhead-ffe3e3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ffe3e3" /></marker>
+    <marker id="arrowhead-c92a2a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a" /></marker>
+    <marker id="arrowhead-f1f3f5" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f1f3f5" /></marker>
+    <marker id="arrowhead-868e96" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96" /></marker>
+    <marker id="arrowhead-c3fae8" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c3fae8" /></marker>
+    <marker id="arrowhead-0c8599" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0c8599" /></marker>
+    <marker id="arrowhead-ffffff" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ffffff" /></marker>
+    <marker id="arrowhead-fff3bf" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#fff3bf" /></marker>
+    <marker id="arrowhead-e67700" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700" /></marker>
+  </defs>
+  <rect width="1600" height="980" fill="#fbfaf7" />
+  <rect width="1600" height="980" fill="url(#grid)" />
+  
+  <text x="64" y="58" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1e1e1e">CRUD request lifecycle</text>
+  <text x="66" y="90" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#5f646b">From a dashboard click to a tenant-scoped PostgreSQL transaction and back</text>
+  <line x1="64" y1="110" x2="1536" y2="110" stroke="#1e1e1e" stroke-width="1.5" opacity="0.18" />
+  
+  <g>
+    <rect x="39" y="164" width="234" height="300" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="36" y="160" width="234" height="300" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="50" y="273.7" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="650" fill="#1e1e1e">1 · Browser</text>
+    <text x="50" y="302.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">User clicks Create / Save</text><text x="50" y="318.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">or changes table query.</text><text x="50" y="334.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b"></text><text x="50" y="350.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">No direct API fetch in</text><text x="50" y="366.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">the feature component.</text>
+  </g>
+
+  <g>
+    <rect x="297" y="164" width="234" height="300" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="294" y="160" width="234" height="300" rx="14" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" />
+    <text x="308" y="281.7" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="650" fill="#1e1e1e">2 · Next.js</text>
+    <text x="308" y="310.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">Thin route renders a</text><text x="308" y="326.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">client module component.</text><text x="308" y="342.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">useApi() resolves the</text><text x="308" y="358.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">ApiClient with JWT + locale.</text>
+  </g>
+
+  <g>
+    <rect x="555" y="164" width="234" height="300" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="552" y="160" width="234" height="300" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="566" y="281.7" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="650" fill="#1e1e1e">3 · API edge</text>
+    <text x="566" y="310.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">JwtAuthGuard validates token.</text><text x="566" y="326.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">PermissionsGuard checks key.</text><text x="566" y="342.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">DomainAvailabilityGuard</text><text x="566" y="358.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">checks DISABLED_DOMAINS.</text>
+  </g>
+
+  <g>
+    <rect x="813" y="164" width="234" height="300" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="810" y="160" width="234" height="300" rx="14" fill="#fff3bf" stroke="#e67700" stroke-width="2" />
+    <text x="824" y="281.7" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="650" fill="#1e1e1e">4 · Controller</text>
+    <text x="824" y="310.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">ValidationPipe: whitelist +</text><text x="824" y="326.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">transform. CRUD factory reads</text><text x="824" y="342.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">@CurrentUser().tenantId and</text><text x="824" y="358.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">calls the service.</text>
+  </g>
+
+  <g>
+    <rect x="1071" y="164" width="234" height="300" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="1068" y="160" width="234" height="300" rx="14" fill="#e5dbff" stroke="#6741d9" stroke-width="2" />
+    <text x="1082" y="273.7" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="650" fill="#1e1e1e">5 · Domain</text>
+    <text x="1082" y="302.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">Service before* hooks enforce</text><text x="1082" y="318.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">business rules. Repository</text><text x="1082" y="334.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">adds</text><text x="1082" y="350.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">tenantId. Presenter maps the</text><text x="1082" y="366.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">entity to response DTO.</text>
+  </g>
+
+  <g>
+    <rect x="1329" y="164" width="234" height="300" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="1326" y="160" width="234" height="300" rx="14" fill="#ffe3e3" stroke="#c92a2a" stroke-width="2" />
+    <text x="1340" y="273.7" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="650" fill="#1e1e1e">6 · PostgreSQL</text>
+    <text x="1340" y="302.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">Prisma transaction commits.</text><text x="1340" y="318.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">AuditLog / Outbox may share</text><text x="1340" y="334.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">the same tx. Envelope</text><text x="1340" y="350.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">returns;</text><text x="1340" y="366.3" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">React Query invalidates.</text>
+  </g>
+<path d="M 270 310 L 294 310" fill="none" stroke="#343a40" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 528 310 L 552 310" fill="none" stroke="#343a40" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 786 310 L 810 310" fill="none" stroke="#343a40" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 1044 310 L 1068 310" fill="none" stroke="#343a40" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 1302 310 L 1326 310" fill="none" stroke="#343a40" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 1510 500 L 1510 548 L 80 548 L 80 500" fill="none" stroke="#2f9e44" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 7" marker-end="url(#arrowhead-2f9e44)" />
+<text x="540" y="525" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2f9e44">success envelope → cache invalidation → render</text>
+<text x="70" y="612" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#c92a2a">WHERE IT BREAKS (most common in this repo)</text>
+
+  <g>
+    <rect x="73" y="634" width="466" height="108" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="70" y="630" width="466" height="108" rx="14" fill="#f1f3f5" stroke="#c92a2a" stroke-width="2" />
+    <text x="84" y="670.9" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="650" fill="#1e1e1e">401/403</text>
+    <text x="84" y="697.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">Token missing, expired, or permission key not granted to the</text><text x="84" y="713.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">role.</text>
+  </g>
+
+  <g>
+    <rect x="573" y="634" width="466" height="108" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="570" y="630" width="466" height="108" rx="14" fill="#f1f3f5" stroke="#c92a2a" stroke-width="2" />
+    <text x="584" y="670.9" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="650" fill="#1e1e1e">400 validation</text>
+    <text x="584" y="697.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">DTO shape and dashboard Zod schema drifted. Regenerate + align</text><text x="584" y="713.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">mappers.</text>
+  </g>
+
+  <g>
+    <rect x="1073" y="634" width="466" height="108" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="1070" y="630" width="466" height="108" rx="14" fill="#f1f3f5" stroke="#c92a2a" stroke-width="2" />
+    <text x="1084" y="670.9" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="650" fill="#1e1e1e">404 tenant scope</text>
+    <text x="1084" y="697.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">Row exists for another tenant, or route prefix / domain is</text><text x="1084" y="713.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">disabled.</text>
+  </g>
+
+  <g>
+    <rect x="73" y="766" width="466" height="108" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="70" y="762" width="466" height="108" rx="14" fill="#f1f3f5" stroke="#c92a2a" stroke-width="2" />
+    <text x="84" y="802.9" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="650" fill="#1e1e1e">409 conflict</text>
+    <text x="84" y="829.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">Unique constraint (code/name) or FK still referenced by</text><text x="84" y="845.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">another row.</text>
+  </g>
+
+  <g>
+    <rect x="573" y="766" width="466" height="108" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="570" y="762" width="466" height="108" rx="14" fill="#f1f3f5" stroke="#c92a2a" stroke-width="2" />
+    <text x="584" y="802.9" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="650" fill="#1e1e1e">Posting 400</text>
+    <text x="584" y="829.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">GL mapping missing, fiscal period closed, or stock</text><text x="584" y="845.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">unavailable.</text>
+  </g>
+
+  <g>
+    <rect x="1073" y="766" width="466" height="108" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="1070" y="762" width="466" height="108" rx="14" fill="#f1f3f5" stroke="#c92a2a" stroke-width="2" />
+    <text x="1084" y="810.9" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="650" fill="#1e1e1e">Preview/print 404</text>
+    <text x="1084" y="837.1" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#5f646b">ID belongs to another tenant; never query without tenantId.</text>
+  </g>
+<text x="70" y="925" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5f646b">The controller may add HTTP-level before/after hooks, but business rules belong in the service. A disabled domain is rejected before the controller is reached.</text>
+  <text x="64" y="954" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">Sanad ERP · docs/reference/diagrams · snapshot b306db3 · 2026-10-24</text>
+  <text x="1536" y="954" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">Source: request-lifecycle.excalidraw</text>
+</svg>

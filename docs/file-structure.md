@@ -1,5 +1,7 @@
 # File Structure
 
+> **Historical overview.** The current, verified tree lives in [`docs/reference/01-monorepo.md`](reference/01-monorepo.md). Use this page for the older narrative; verify any path or package name there before relying on it.
+
 ## Top-Level Directory Map
 
 ```
