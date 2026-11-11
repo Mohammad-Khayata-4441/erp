@@ -48,6 +48,18 @@ pnpm --filter @devloggers/dashboard dev    # http://localhost:3000
 
 `pnpm dev` starts every workspace dev task. Prefer the two filters above when you are only working on the API and dashboard.
 
+## End-to-end tests
+
+Playwright runs against the dashboard, API, and existing development database. Follow the local setup above, including migrations and `NEXT_PUBLIC_API_BASE_URL=http://localhost:4040`, and start the API and dashboard in separate terminals before running tests. See [CONTRIBUTING.md](CONTRIBUTING.md#4-migrate-seed-and-run) if the dashboard's `predev` hook fails.
+
+```bash
+pnpm --filter @devloggers/dashboard exec playwright install chromium
+pnpm --filter @devloggers/dashboard test:e2e
+pnpm --filter @devloggers/dashboard test:e2e:ui
+```
+
+The UI command opens Playwright's interactive test runner. Set `PLAYWRIGHT_BASE_URL` to use a dashboard URL other than `http://localhost:3000`. Failed runs retain a trace in `apps/dashboard/test-results/`. The registration test creates a company and administrator with a unique email on each run; these records remain in the development database.
+
 The dashboard `predev` hook calls an API script named `generate`, while the published script is `generate:spec`. If that hook fails, use the workaround in [CONTRIBUTING.md](CONTRIBUTING.md#4-migrate-seed-and-run).
 
 ## Contributing
