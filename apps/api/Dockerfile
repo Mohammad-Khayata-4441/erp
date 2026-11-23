@@ -29,4 +29,4 @@ VOLUME ["/app/uploads"]
 ENV NODE_ENV=production
 EXPOSE 4040
 
-CMD ["node", "apps/api/dist/main"]
+CMD ["node", "apps/api/dist/src/main.js"]
