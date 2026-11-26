@@ -1533,18 +1533,25 @@ model Unit {
 }
 
 // ─── App User ─────────────────────────────────────────────────────────────────
+enum AuthProvider {
+  LOCAL
+  GOOGLE
+}
+
 model AppUser {
-  id           String    @id @default(uuid())
-  tenantId     String    @map("tenant_id")
+  id           String       @id @default(uuid())
+  tenantId     String       @map("tenant_id")
   email        String
-  passwordHash String    @map("password_hash")
-  fullName     String    @map("full_name")
+  passwordHash String?      @map("password_hash")
+  authProvider AuthProvider @default(LOCAL) @map("auth_provider")
+  googleSub    String?      @unique @map("google_sub")
+  fullName     String       @map("full_name")
   phone        String?
-  avatarUrl    String?   @map("avatar_url")
-  isActive     Boolean   @default(true) @map("is_active")
-  lastLoginAt  DateTime? @map("last_login_at")
-  createdAt    DateTime  @default(now()) @map("created_at")
-  updatedAt    DateTime  @updatedAt @map("updated_at")
+  avatarUrl    String?      @map("avatar_url")
+  isActive     Boolean      @default(true) @map("is_active")
+  lastLoginAt  DateTime?    @map("last_login_at")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
 
   tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   userRoles UserRole[]

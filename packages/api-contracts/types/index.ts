@@ -1456,6 +1456,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/auth/google/login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Sign in with Google
+         * @description Exchanges a Google authorization code, links the verified Google account when the email already belongs to a user, and returns a JWT access token.
+         */
+        post: operations["Auth.loginWithGoogle"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/auth/register": {
         parameters: {
             query?: never;
@@ -1470,6 +1490,26 @@ export interface paths {
          * @description Creates a new tenant with an admin user, then returns a JWT access token (auto-login).
          */
         post: operations["Auth.register"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/google/register": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Register with Google
+         * @description Verifies a Google authorization code, creates a tenant and admin user without a password, and returns a JWT access token.
+         */
+        post: operations["Auth.registerWithGoogle"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5844,6 +5884,13 @@ export interface components {
             /** @example admin123 */
             password: string;
         };
+        GoogleLoginDto: {
+            /**
+             * @description Authorization code from the Google Identity Services popup
+             * @example 4/0AeaYSH...
+             */
+            code: string;
+        };
         RegisterDto: {
             /**
              * @description Company / organization name
@@ -5865,6 +5912,20 @@ export interface components {
              * @example admin123
              */
             password: string;
+            /** @example +963-11-1234567 */
+            phone?: string;
+        };
+        GoogleRegisterDto: {
+            /**
+             * @description Authorization code from the Google Identity Services popup
+             * @example 4/0AeaYSH...
+             */
+            code: string;
+            /**
+             * @description Company / organization name
+             * @example Demo Shop
+             */
+            companyName: string;
             /** @example +963-11-1234567 */
             phone?: string;
         };
@@ -19339,6 +19400,77 @@ export interface operations {
             };
         };
     };
+    "Auth.loginWithGoogle": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GoogleLoginDto"];
+            };
+        };
+        responses: {
+            /** @description Google login successful – JWT token returned and set as cookie */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiSuccessResponseDto"] & {
+                        data?: components["schemas"]["LoginDataDto"];
+                    };
+                };
+            };
+            /** @description JWT token is missing, expired, or invalid */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description Insufficient permissions to perform this action */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description The requested resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description Request body validation failed */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description An unexpected internal server error occurred */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+        };
+    };
     "Auth.register": {
         parameters: {
             query?: never;
@@ -19353,6 +19485,77 @@ export interface operations {
         };
         responses: {
             /** @description Registration successful – tenant created and JWT returned */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiSuccessResponseDto"] & {
+                        data?: components["schemas"]["LoginDataDto"];
+                    };
+                };
+            };
+            /** @description JWT token is missing, expired, or invalid */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description Insufficient permissions to perform this action */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description The requested resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description Request body validation failed */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+            /** @description An unexpected internal server error occurred */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApiErrorResponseDto"];
+                };
+            };
+        };
+    };
+    "Auth.registerWithGoogle": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GoogleRegisterDto"];
+            };
+        };
+        responses: {
+            /** @description Google registration successful – tenant created and JWT returned */
             201: {
                 headers: {
                     [name: string]: unknown;

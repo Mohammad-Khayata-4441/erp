@@ -30,6 +30,9 @@ import { useMutation } from "@tanstack/react-query"
 import { Alert, AlertTitle } from "@/shared/components/ui/alert"
 import { AlertTriangle } from "lucide-react"
 import { api } from "@devloggers/api-client"
+import { useState } from "react"
+import { describeGoogleAuthError, type GoogleAuthMessages } from "./google-auth"
+import { GoogleAuthButton } from "./google-auth-button"
 
 export function RegisterForm({
     className,
@@ -45,6 +48,8 @@ export function RegisterForm({
     const {
         handleSubmit,
         register,
+        trigger,
+        getValues,
         formState: { errors },
     } = useForm<RegisterFormValues>({
         resolver: zodResolver(registerFormSchema),
@@ -57,7 +62,15 @@ export function RegisterForm({
         },
     })
 
-    const { mutate, error, isPending: isSubmitting } = useMutation({
+    const [googleClientError, setGoogleClientError] = useState<unknown>(null)
+    const googleMessages: GoogleAuthMessages = {
+        notConfigured: t("system.auth.google.notConfigured"),
+        notRegistered: t("system.auth.google.notRegistered"),
+        failed: t("system.auth.google.failed"),
+        scriptFailed: t("system.auth.google.scriptFailed"),
+    }
+
+    const { mutate, error, isPending: isSubmitting, reset } = useMutation({
         mutationFn: (values: RegisterFormValues) => api.auth.register(values),
         onSuccess: async (result) => {
             const data = result.data
@@ -68,7 +81,33 @@ export function RegisterForm({
         },
     })
 
+    const googleRegister = useMutation({
+        mutationFn: (code: string) => {
+            const phone = getValues("phone")?.trim()
+            return api.auth.googleRegister({
+                code,
+                companyName: getValues("companyName").trim(),
+                phone: phone || undefined,
+            })
+        },
+        onSuccess: async (result) => {
+            const data = result.data
+            if (data?.accessToken && data.user) {
+                await login(data.accessToken, data.user)
+                router.push(localizedHref("/"))
+            }
+        },
+    })
+
+    const alertMessage = googleRegister.error
+        ? describeGoogleAuthError(googleRegister.error, googleMessages)
+        : googleClientError
+          ? describeGoogleAuthError(googleClientError, googleMessages)
+          : error?.message
+
     function onSubmit(values: RegisterFormValues) {
+        setGoogleClientError(null)
+        googleRegister.reset()
         mutate({
             ...values,
             phone: values.phone?.trim() || undefined,
@@ -90,11 +129,11 @@ export function RegisterForm({
                     <CardDescription>{t("system.auth.register.description")}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {error ? (
+                    {alertMessage ? (
                         <Alert variant="destructive" className="mb-4">
                             <AlertTriangle className="me-2 h-4 w-4" />
                             <AlertTitle>{t("system.auth.register.errorTitle")}</AlertTitle>
-                            {error.message}
+                            {alertMessage}
                         </Alert>
                     ) : null}
 
@@ -113,6 +152,17 @@ export function RegisterForm({
                                 />
                                 <FieldError errors={[errors.companyName]} />
                             </Field>
+                            <GoogleAuthButton
+                                pending={googleRegister.isPending}
+                                disabled={isSubmitting}
+                                onBeforeRequest={() => trigger("companyName")}
+                                onCode={(code) => {
+                                    setGoogleClientError(null)
+                                    reset()
+                                    googleRegister.mutate(code)
+                                }}
+                                onError={setGoogleClientError}
+                            />
                             <Field>
                                 <FieldLabel htmlFor="fullName">
                                     {t("system.auth.register.fullName")}

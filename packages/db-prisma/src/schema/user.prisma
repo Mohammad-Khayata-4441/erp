@@ -1,9 +1,16 @@
 // ─── App User ─────────────────────────────────────────────────────────────────
+enum AuthProvider {
+    LOCAL
+    GOOGLE
+}
+
 model AppUser {
     id           String         @id @default(uuid())
     tenantId     String         @map("tenant_id")
     email        String
-    passwordHash String         @map("password_hash")
+    passwordHash String?        @map("password_hash")
+    authProvider AuthProvider   @default(LOCAL) @map("auth_provider")
+    googleSub    String?        @unique @map("google_sub")
     fullName     String         @map("full_name")
     phone        String?
     avatarUrl    String?        @map("avatar_url")

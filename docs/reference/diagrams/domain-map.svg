@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="930" viewBox="0 0 1600 930" role="img" aria-label="API domain map">
+  
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.9" fill="#1e1e1e" opacity="0.09" />
+    </pattern>
+    <marker id="arrowhead-fbfaf7" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#fbfaf7" /></marker>
+    <marker id="arrowhead-1e1e1e" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e1e1e" /></marker>
+    <marker id="arrowhead-5f646b" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5f646b" /></marker>
+    <marker id="arrowhead-343a40" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#343a40" /></marker>
+    <marker id="arrowhead-d0ebff" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#d0ebff" /></marker>
+    <marker id="arrowhead-1971c2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1971c2" /></marker>
+    <marker id="arrowhead-d3f9d8" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#d3f9d8" /></marker>
+    <marker id="arrowhead-2f9e44" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2f9e44" /></marker>
+    <marker id="arrowhead-ffe8cc" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ffe8cc" /></marker>
+    <marker id="arrowhead-e8590c" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e8590c" /></marker>
+    <marker id="arrowhead-e5dbff" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e5dbff" /></marker>
+    <marker id="arrowhead-6741d9" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6741d9" /></marker>
+    <marker id="arrowhead-ffe3e3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ffe3e3" /></marker>
+    <marker id="arrowhead-c92a2a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c92a2a" /></marker>
+    <marker id="arrowhead-f1f3f5" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f1f3f5" /></marker>
+    <marker id="arrowhead-868e96" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96" /></marker>
+    <marker id="arrowhead-c3fae8" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c3fae8" /></marker>
+    <marker id="arrowhead-0c8599" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0c8599" /></marker>
+    <marker id="arrowhead-ffffff" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ffffff" /></marker>
+    <marker id="arrowhead-fff3bf" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#fff3bf" /></marker>
+    <marker id="arrowhead-e67700" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e67700" /></marker>
+  </defs>
+  <rect width="1600" height="930" fill="#fbfaf7" />
+  <rect width="1600" height="930" fill="url(#grid)" />
+  
+  <text x="64" y="58" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1e1e1e">API domain map</text>
+  <text x="66" y="90" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#5f646b">13 domains under apps/api/src/modules · main dependency spine; exact dependsOn lists in 02-api.md</text>
+  <line x1="64" y1="110" x2="1536" y2="110" stroke="#1e1e1e" stroke-width="1.5" opacity="0.18" />
+  
+  <g>
+    <rect x="73" y="174" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="70" y="170" width="260" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="200" y="223.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">platform</text>
+    <text x="200" y="254.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/branches</text><text x="200" y="269.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+
+  <g>
+    <rect x="363" y="174" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="360" y="170" width="260" height="128" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="490" y="223.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">custom-fields</text>
+    <text x="490" y="254.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/custom-fields</text><text x="490" y="269.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">optional</text>
+  </g>
+
+  <g>
+    <rect x="653" y="174" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="650" y="170" width="260" height="128" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="780" y="223.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">files</text>
+    <text x="780" y="254.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/files</text><text x="780" y="269.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">optional</text>
+  </g>
+
+  <g>
+    <rect x="943" y="174" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="940" y="170" width="260" height="128" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="1070" y="223.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">ai-agent</text>
+    <text x="1070" y="254.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/ai · /ai/conversations</text><text x="1070" y="269.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">optional</text>
+  </g>
+
+  <g>
+    <rect x="1233" y="174" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="1230" y="170" width="260" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="1360" y="223.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">audit</text>
+    <text x="1360" y="254.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/audit-logs</text><text x="1360" y="269.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+
+  <g>
+    <rect x="73" y="404" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="70" y="400" width="260" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="200" y="453.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">catalog</text>
+    <text x="200" y="484.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/units · /items · /item-categories</text><text x="200" y="499.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+
+  <g>
+    <rect x="363" y="404" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="360" y="400" width="260" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="490" y="445.46" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">inventory</text>
+    <text x="490" y="476.46" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/inventory · /warehouses ·</text><text x="490" y="491.82" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/stock-*</text><text x="490" y="507.17999999999995" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+
+  <g>
+    <rect x="653" y="404" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="650" y="400" width="260" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="780" y="445.46" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">accounting</text>
+    <text x="780" y="476.46" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/accounting/* · /currencies ·</text><text x="780" y="491.82" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/fiscal-periods</text><text x="780" y="507.17999999999995" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+
+  <g>
+    <rect x="943" y="404" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="940" y="400" width="260" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="1070" y="453.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">invoicing</text>
+    <text x="1070" y="484.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/invoices · /payments · /expenses</text><text x="1070" y="499.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+
+  <g>
+    <rect x="1233" y="404" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="1230" y="400" width="260" height="128" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="1360" y="453.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">pos</text>
+    <text x="1360" y="484.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/pos/checkout · /pos/settings</text><text x="1360" y="499.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">optional</text>
+  </g>
+
+  <g>
+    <rect x="363" y="624" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="360" y="620" width="260" height="128" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="490" y="673.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">parties</text>
+    <text x="490" y="704.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/parties</text><text x="490" y="719.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">optional</text>
+  </g>
+
+  <g>
+    <rect x="653" y="624" width="260" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="650" y="620" width="260" height="128" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="780" y="673.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">reports</text>
+    <text x="780" y="704.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/reports · /dashboard</text><text x="780" y="719.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">optional</text>
+  </g>
+
+  <g>
+    <rect x="943" y="624" width="520" height="128" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="940" y="620" width="520" height="128" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="1200" y="673.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="650" fill="#1e1e1e">identity</text>
+    <text x="1200" y="704.14" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">/auth · /users · /roles · /settings</text><text x="1200" y="719.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">required</text>
+  </g>
+<path d="M 200 298 L 200 400" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 490 298 L 200 400" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 330 464 L 360 464" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 620 464 L 650 464" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 780 400 L 780 345 L 1360 345 L 1360 298" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 940 430 L 910 430" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 1070 528 L 1070 575 L 490 575 L 490 528" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 1230 430 L 1200 430" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<path d="M 1200 234 L 1230 234" fill="none" stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arrowhead-343a40)" />
+<text x="70" y="804.5" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5f646b">Arrow = “depends on”. The map shows the main runtime spine; exact dependsOn lists (including identity → accounting/catalog/invoicing/platform, reports → invoicing and POS → parties) are in 02-api.md. identity</text><text x="70" y="820.125" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5f646b">is the shared auth kernel: every domain may import JwtAuthGuard / @CurrentUser.</text>
+
+  <g>
+    <rect x="73" y="850" width="81.6" height="30" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="70" y="846" width="81.6" height="30" rx="14" fill="#d0ebff" stroke="#1971c2" stroke-width="2" />
+    <text x="110.8" y="865.8" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="650" fill="#1e1e1e">required</text>
+    
+  </g>
+
+  <g>
+    <rect x="183" y="850" width="81.6" height="30" rx="14" fill="#1e1e1e" opacity="0.06" />
+    <rect x="180" y="846" width="81.6" height="30" rx="14" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" />
+    <text x="220.8" y="865.8" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="650" fill="#1e1e1e">optional</text>
+    
+  </g>
+<text x="300" y="862" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#5f646b">DISABLED_DOMAINS accepts optional keys only, and refuses to disable a domain that an enabled domain still</text><text x="300" y="877" text-anchor="start" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#5f646b">depends on.</text>
+  <text x="64" y="904" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">Sanad ERP · docs/reference/diagrams · snapshot b306db3 · 2026-10-24</text>
+  <text x="1536" y="904" text-anchor="end" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f646b">Source: domain-map.excalidraw</text>
+</svg>

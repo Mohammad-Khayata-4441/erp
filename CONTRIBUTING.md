@@ -72,6 +72,8 @@ DATABASE_URL=postgresql://erp:erp@localhost:5435/erp
 ```bash
 DATABASE_URL=postgresql://erp:erp@localhost:5435/erp
 JWT_ACCESS_SECRET=replace-with-a-long-random-string
+GOOGLE_CLIENT_ID=replace-with-google-oauth-client-id
+GOOGLE_CLIENT_SECRET=replace-with-google-oauth-client-secret
 PORT=4040
 ```
 
@@ -79,7 +81,10 @@ PORT=4040
 
 ```bash
 NEXT_PUBLIC_API_BASE_URL=http://localhost:4040
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=replace-with-google-oauth-client-id
 ```
+
+`NEXT_PUBLIC_GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_ID` are the same Google web client id. `GOOGLE_CLIENT_SECRET` stays on the API. Leave the placeholders until the Google Cloud OAuth client exists; sign-in stays disabled until they are replaced. Add `http://localhost:3000` as an authorized JavaScript origin.
 
 The dashboard falls back to port `4000` when that variable is missing. The API listens on **4040**. Set the variable so the two match.
 

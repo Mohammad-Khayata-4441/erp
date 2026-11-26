@@ -825,6 +825,8 @@ exports.Prisma.AppUserScalarFieldEnum = {
   tenantId: 'tenantId',
   email: 'email',
   passwordHash: 'passwordHash',
+  authProvider: 'authProvider',
+  googleSub: 'googleSub',
   fullName: 'fullName',
   phone: 'phone',
   avatarUrl: 'avatarUrl',
@@ -1064,6 +1066,11 @@ exports.StockMovementType = exports.$Enums.StockMovementType = {
   STOCK_COUNT: 'STOCK_COUNT',
   TRANSFER_IN: 'TRANSFER_IN',
   TRANSFER_OUT: 'TRANSFER_OUT'
+};
+
+exports.AuthProvider = exports.$Enums.AuthProvider = {
+  LOCAL: 'LOCAL',
+  GOOGLE: 'GOOGLE'
 };
 
 exports.Prisma.ModelName = {

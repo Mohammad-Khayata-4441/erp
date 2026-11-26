@@ -29,4 +29,5 @@ VOLUME ["/app/uploads"]
 ENV NODE_ENV=production
 EXPOSE 4040
 
-CMD ["node", "apps/api/dist/src/main.js"]
+# Apply pending migrations before serving traffic with the new schema.
+CMD ["sh", "-c", "pnpm --filter @devloggers/db-prisma db:migrate:deploy && exec node apps/api/dist/src/main.js"]

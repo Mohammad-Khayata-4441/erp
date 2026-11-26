@@ -57,6 +57,15 @@
       "submitting": "جارٍ إنشاء الحساب...",
       "hasAccount": "لديك حساب بالفعل؟",
       "loginLink": "تسجيل الدخول"
+    },
+    "google": {
+      "continue": "المتابعة باستخدام Google",
+      "waiting": "بانتظار Google...",
+      "or": "أو",
+      "notConfigured": "تسجيل الدخول عبر Google غير مُعد بعد. استبدل معرّف العميل والسر المؤقتين.",
+      "notRegistered": "لا يوجد حساب مرتبط بحساب Google هذا. أنشئ حساباً أولاً.",
+      "failed": "فشل تسجيل الدخول عبر Google",
+      "scriptFailed": "تعذر تحميل Google. حاول مرة أخرى."
     }
   },
   "confirm": {

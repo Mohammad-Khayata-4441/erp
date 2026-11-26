@@ -19,6 +19,8 @@ RUN pnpm --filter @devloggers/db-prisma db:generate
 # NEXT_PUBLIC_* values are inlined at build time.
 ARG NEXT_PUBLIC_API_BASE_URL=http://localhost:4040
 ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID
+ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID
 
 # Build workspace dependencies only: the dashboard's `prebuild` calls the stale
 # `@devloggers/api run generate` script, so we invoke `next build` directly and

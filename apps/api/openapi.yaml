@@ -14733,6 +14733,108 @@ paths:
       summary: Authenticate user
       tags:
         - Auth
+  /auth/google/login:
+    post:
+      description: >-
+        Exchanges a Google authorization code, links the verified Google account
+        when the email already belongs to a user, and returns a JWT access
+        token.
+      operationId: Auth.loginWithGoogle
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleLoginDto'
+      responses:
+        '200':
+          description: Google login successful – JWT token returned and set as cookie
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiSuccessResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/LoginDataDto'
+        '401':
+          description: JWT token is missing, expired, or invalid
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Unauthorized
+                  data: null
+                  error:
+                    code: UNAUTHORIZED
+                    message: JWT token is missing, expired, or invalid
+        '403':
+          description: Insufficient permissions to perform this action
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Forbidden
+                  data: null
+                  error:
+                    code: FORBIDDEN
+                    message: Insufficient permissions to perform this action
+        '404':
+          description: The requested resource was not found
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Not found
+                  data: null
+                  error:
+                    code: NOT_FOUND
+                    message: The requested resource was not found
+        '422':
+          description: Request body validation failed
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Validation failed
+                  data: null
+                  error:
+                    code: VALIDATION_ERROR
+                    message: Validation failed
+                    details:
+                      - field: email
+                        message: email must be a valid email address
+                        code: isEmail
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Internal server error
+                  data: null
+                  error:
+                    code: INTERNAL_ERROR
+                    message: Internal server error
+      summary: Sign in with Google
+      tags:
+        - Auth
   /auth/register:
     post:
       description: >-
@@ -14832,6 +14934,107 @@ paths:
                     code: INTERNAL_ERROR
                     message: Internal server error
       summary: Register a new account
+      tags:
+        - Auth
+  /auth/google/register:
+    post:
+      description: >-
+        Verifies a Google authorization code, creates a tenant and admin user
+        without a password, and returns a JWT access token.
+      operationId: Auth.registerWithGoogle
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleRegisterDto'
+      responses:
+        '201':
+          description: Google registration successful – tenant created and JWT returned
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiSuccessResponseDto'
+                  - properties:
+                      data:
+                        $ref: '#/components/schemas/LoginDataDto'
+        '401':
+          description: JWT token is missing, expired, or invalid
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Unauthorized
+                  data: null
+                  error:
+                    code: UNAUTHORIZED
+                    message: JWT token is missing, expired, or invalid
+        '403':
+          description: Insufficient permissions to perform this action
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Forbidden
+                  data: null
+                  error:
+                    code: FORBIDDEN
+                    message: Insufficient permissions to perform this action
+        '404':
+          description: The requested resource was not found
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Not found
+                  data: null
+                  error:
+                    code: NOT_FOUND
+                    message: The requested resource was not found
+        '422':
+          description: Request body validation failed
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Validation failed
+                  data: null
+                  error:
+                    code: VALIDATION_ERROR
+                    message: Validation failed
+                    details:
+                      - field: email
+                        message: email must be a valid email address
+                        code: isEmail
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ApiErrorResponseDto'
+                example:
+                  status: error
+                  message: Internal server error
+                  data: null
+                  error:
+                    code: INTERNAL_ERROR
+                    message: Internal server error
+      summary: Register with Google
       tags:
         - Auth
   /auth/logout:
@@ -30340,6 +30543,16 @@ components:
       required:
         - email
         - password
+    GoogleLoginDto:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 2048
+          description: Authorization code from the Google Identity Services popup
+          example: 4/0AeaYSH...
+      required:
+        - code
     RegisterDto:
       type: object
       properties:
@@ -30368,6 +30581,27 @@ components:
         - fullName
         - email
         - password
+    GoogleRegisterDto:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 2048
+          description: Authorization code from the Google Identity Services popup
+          example: 4/0AeaYSH...
+        companyName:
+          type: string
+          minLength: 2
+          maxLength: 200
+          example: Demo Shop
+          description: Company / organization name
+        phone:
+          type: string
+          maxLength: 40
+          example: +963-11-1234567
+      required:
+        - code
+        - companyName
     LogoutResponseDto:
       type: object
       properties:
