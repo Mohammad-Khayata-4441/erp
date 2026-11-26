@@ -11,8 +11,16 @@ export class AuthClient {
         return this.apiClient.post(authResource.routes.login, payload)
     }
 
+    googleLogin = async (payload: ApiRequestBody<typeof authResource.routes.googleLogin, 'post'>) => {
+        return this.apiClient.post(authResource.routes.googleLogin, payload)
+    }
+
     register = async (payload: ApiRequestBody<typeof authResource.routes.register, 'post'>) => {
         return this.apiClient.post(authResource.routes.register, payload)
+    }
+
+    googleRegister = async (payload: ApiRequestBody<typeof authResource.routes.googleRegister, 'post'>) => {
+        return this.apiClient.post(authResource.routes.googleRegister, payload)
     }
 
     me = async () => {

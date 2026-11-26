@@ -24,8 +24,11 @@ export class TenantsRepository {
         phone?: string;
         email?: string;
         adminEmail: string;
-        passwordHash: string;
+        passwordHash: string | null;
         adminFullName: string;
+        authProvider?: 'LOCAL' | 'GOOGLE';
+        googleSub?: string | null;
+        avatarUrl?: string | null;
     }) {
         return this.prisma.$transaction(async (tx) => {
             const catalog = await tx.permission.findMany({ select: { id: true } });
@@ -67,7 +70,10 @@ export class TenantsRepository {
                     tenantId: tenant.id,
                     email: data.adminEmail,
                     passwordHash: data.passwordHash,
+                    authProvider: data.authProvider ?? 'LOCAL',
+                    googleSub: data.googleSub ?? null,
                     fullName: data.adminFullName,
+                    avatarUrl: data.avatarUrl ?? null,
                     userRoles: {
                         create: { roleId: ownerRole.id },
                     },

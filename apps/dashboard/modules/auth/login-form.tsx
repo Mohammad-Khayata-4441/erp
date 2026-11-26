@@ -31,6 +31,9 @@ import { useMutation } from "@tanstack/react-query"
 import { Alert, AlertTitle } from "@/shared/components/ui/alert"
 import { AlertTriangle } from "lucide-react"
 import { api } from "@devloggers/api-client"
+import { useState } from "react"
+import { describeGoogleAuthError, type GoogleAuthMessages } from "./google-auth"
+import { GoogleAuthButton } from "./google-auth-button"
 
 export function LoginForm({
     className,
@@ -64,7 +67,15 @@ export function LoginForm({
                   },
     })
 
-    const { mutate, error, isPending: isSubmitting } = useMutation({
+    const [googleClientError, setGoogleClientError] = useState<unknown>(null)
+    const googleMessages: GoogleAuthMessages = {
+        notConfigured: t("system.auth.google.notConfigured"),
+        notRegistered: t("system.auth.google.notRegistered"),
+        failed: t("system.auth.google.failed"),
+        scriptFailed: t("system.auth.google.scriptFailed"),
+    }
+
+    const { mutate, error, isPending: isSubmitting, reset } = useMutation({
         mutationFn: (values: LoginFormValues) => api.auth.login(values),
         onSuccess: async ({ data }) => {
             if (data?.accessToken && data.user) {
@@ -74,7 +85,26 @@ export function LoginForm({
         },
     })
 
+    const googleLogin = useMutation({
+        mutationFn: (code: string) => api.auth.googleLogin({ code }),
+        onSuccess: async ({ data }) => {
+            if (data?.accessToken && data.user) {
+                await login(data.accessToken, data.user)
+                setLastLoginEmail(data.user.email)
+                router.push(localizedHref("/"))
+            }
+        },
+    })
+
+    const alertMessage = googleLogin.error
+        ? describeGoogleAuthError(googleLogin.error, googleMessages)
+        : googleClientError
+          ? describeGoogleAuthError(googleClientError, googleMessages)
+          : error?.message
+
     async function onSubmit(values: LoginFormValues) {
+        setGoogleClientError(null)
+        googleLogin.reset()
         setLastLoginEmail(values.email)
         mutate(values)
     }
@@ -94,13 +124,24 @@ export function LoginForm({
                     <CardDescription>{t("system.auth.login.description")}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {error ? (
+                    {alertMessage ? (
                         <Alert variant="destructive" className="mb-4">
                             <AlertTriangle className="me-2 h-4 w-4" />
                             <AlertTitle>{t("system.auth.login.errorTitle")}</AlertTitle>
-                            {error.message}
+                            {alertMessage}
                         </Alert>
                     ) : null}
+
+                    <GoogleAuthButton
+                        pending={googleLogin.isPending}
+                        disabled={isSubmitting}
+                        onCode={(code) => {
+                            setGoogleClientError(null)
+                            reset()
+                            googleLogin.mutate(code)
+                        }}
+                        onError={setGoogleClientError}
+                    />
 
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                         <FieldGroup>

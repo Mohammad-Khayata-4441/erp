@@ -57,6 +57,15 @@
       "submitting": "Hesap oluşturuluyor...",
       "hasAccount": "Zaten hesabın var mı?",
       "loginLink": "Giriş yap"
+    },
+    "google": {
+      "continue": "Google ile devam et",
+      "waiting": "Google bekleniyor...",
+      "or": "veya",
+      "notConfigured": "Google ile giriş henüz yapılandırılmadı. Yer tutucu istemci kimliğini ve sırrı değiştir.",
+      "notRegistered": "Bu Google hesabına bağlı bir hesap yok. Önce bir hesap oluştur.",
+      "failed": "Google ile giriş başarısız",
+      "scriptFailed": "Google yüklenemedi. Tekrar dene."
     }
   },
   "confirm": {

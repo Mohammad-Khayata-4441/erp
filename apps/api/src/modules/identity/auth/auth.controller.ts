@@ -11,7 +11,7 @@ import {
 import type * as express from 'express';
 import { ApiTags, ApiBearerAuth, ApiOperation, ApiOkResponse } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
-import { LoginDto, RegisterDto, LoginDataDto, AuthUserDto, LogoutResponseDto } from './dto';
+import { LoginDto, RegisterDto, GoogleLoginDto, GoogleRegisterDto, LoginDataDto, AuthUserDto, LogoutResponseDto } from './dto';
 import { JwtAuthGuard } from './guards';
 import { CurrentUser, RequestUser } from './decorators';
 import { ApiOkResponseStandard, ApiCreatedResponseStandard, ApiStandardErrors } from '../../../common/decorators/api-swagger.decorators';
@@ -32,19 +32,24 @@ export class AuthController {
         @Res({ passthrough: true }) res: express.Response,
     ) {
         const result = await this.authService.login(dto.email, dto.password);
+        return this.sessionResponse(res, result, 'Login successful');
+    }
 
-        // Set access token as HTTP-only cookie
-        res.cookie('access_token', result.accessToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-            maxAge: 24 * 60 * 60 * 1000, // 24 hours
-        });
-
-        return ApiResponseBuilder.success(
-            { user: result.user, accessToken: result.accessToken },
-            'Login successful',
-        );
+    @Post('google/login')
+    @HttpCode(HttpStatus.OK)
+    @ApiOperation({
+        summary: 'Sign in with Google',
+        description:
+            'Exchanges a Google authorization code, links the verified Google account when the email already belongs to a user, and returns a JWT access token.',
+    })
+    @ApiOkResponseStandard(LoginDataDto, { description: 'Google login successful – JWT token returned and set as cookie' })
+    @ApiStandardErrors()
+    async loginWithGoogle(
+        @Body() dto: GoogleLoginDto,
+        @Res({ passthrough: true }) res: express.Response,
+    ) {
+        const result = await this.authService.loginWithGoogle(dto.code);
+        return this.sessionResponse(res, result, 'Login successful');
     }
 
     @Post('register')
@@ -60,18 +65,24 @@ export class AuthController {
         @Res({ passthrough: true }) res: express.Response,
     ) {
         const result = await this.authService.register(dto);
+        return this.sessionResponse(res, result, 'Registration successful');
+    }
 
-        res.cookie('access_token', result.accessToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-            maxAge: 24 * 60 * 60 * 1000,
-        });
-
-        return ApiResponseBuilder.success(
-            { user: result.user, accessToken: result.accessToken },
-            'Registration successful',
-        );
+    @Post('google/register')
+    @HttpCode(HttpStatus.CREATED)
+    @ApiOperation({
+        summary: 'Register with Google',
+        description:
+            'Verifies a Google authorization code, creates a tenant and admin user without a password, and returns a JWT access token.',
+    })
+    @ApiCreatedResponseStandard(LoginDataDto, { description: 'Google registration successful – tenant created and JWT returned' })
+    @ApiStandardErrors()
+    async registerWithGoogle(
+        @Body() dto: GoogleRegisterDto,
+        @Res({ passthrough: true }) res: express.Response,
+    ) {
+        const result = await this.authService.registerWithGoogle(dto.code, dto.companyName, dto.phone);
+        return this.sessionResponse(res, result, 'Registration successful');
     }
 
     @Post('logout')
@@ -98,5 +109,23 @@ export class AuthController {
     async me(@CurrentUser() user: RequestUser) {
         const data = await this.authService.getMe(user.id);
         return ApiResponseBuilder.success(data, 'Current user');
+    }
+
+    private sessionResponse(
+        res: express.Response,
+        result: { accessToken: string; user: AuthUserDto },
+        message: string,
+    ) {
+        res.cookie('access_token', result.accessToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 24 * 60 * 60 * 1000,
+        });
+
+        return ApiResponseBuilder.success(
+            { user: result.user, accessToken: result.accessToken },
+            message,
+        );
     }
 }

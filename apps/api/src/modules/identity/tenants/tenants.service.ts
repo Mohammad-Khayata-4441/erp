@@ -42,6 +42,44 @@ export class TenantsService {
         };
     }
 
+    async createGoogleTenant(dto: {
+        name: string;
+        slug: string;
+        email?: string;
+        phone?: string;
+        adminEmail: string;
+        adminFullName: string;
+        googleSub: string;
+        avatarUrl?: string;
+    }) {
+        const existing = await this.tenantsRepository.findBySlug(dto.slug);
+        if (existing) {
+            throw new ConflictException('Tenant slug already exists');
+        }
+
+        const { tenant, adminUser } = await this.tenantsRepository.createTenantWithAdmin({
+            name: dto.name,
+            slug: dto.slug,
+            phone: dto.phone,
+            email: dto.email,
+            adminEmail: dto.adminEmail,
+            passwordHash: null,
+            adminFullName: dto.adminFullName,
+            authProvider: 'GOOGLE',
+            googleSub: dto.googleSub,
+            avatarUrl: dto.avatarUrl ?? null,
+        });
+
+        return {
+            ...this.tenantPresenter.toResponse(tenant),
+            adminUser: {
+                id: adminUser.id,
+                email: adminUser.email,
+                fullName: adminUser.fullName,
+            },
+        };
+    }
+
     async findCurrent(tenantId: string): Promise<TenantResponseDto> {
         const tenant = await this.tenantsRepository.findById(tenantId);
         return this.tenantPresenter.toResponse(tenant);

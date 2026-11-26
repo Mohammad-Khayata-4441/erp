@@ -1,4 +1,8 @@
 import * as Joi from 'joi';
+import {
+    GOOGLE_CLIENT_ID_PLACEHOLDER,
+    GOOGLE_CLIENT_SECRET_PLACEHOLDER,
+} from '../modules/identity/auth/google/google-auth.constants';
 
 export const envValidationSchema = Joi.object({
     NODE_ENV: Joi.string().valid('development', 'test', 'production').default('development'),
@@ -9,6 +13,9 @@ export const envValidationSchema = Joi.object({
     JWT_REFRESH_SECRET: Joi.string().optional(),
     JWT_REFRESH_EXPIRES_IN: Joi.string().optional(),
     BCRYPT_SALT_ROUNDS: Joi.number().default(10),
+    // Google OAuth. Placeholders keep the API bootable until real credentials are set.
+    GOOGLE_CLIENT_ID: Joi.string().default(GOOGLE_CLIENT_ID_PLACEHOLDER),
+    GOOGLE_CLIENT_SECRET: Joi.string().default(GOOGLE_CLIENT_SECRET_PLACEHOLDER),
     BASE_DOMAIN: Joi.string().optional().default('localhost'),
     // Storage
     STORAGE_TYPE: Joi.string().valid('local', 's3').default('local'),

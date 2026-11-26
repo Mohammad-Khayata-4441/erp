@@ -57,6 +57,15 @@
       "submitting": "Creating account...",
       "hasAccount": "Already have an account?",
       "loginLink": "Sign in"
+    },
+    "google": {
+      "continue": "Continue with Google",
+      "waiting": "Waiting for Google...",
+      "or": "or",
+      "notConfigured": "Google sign-in is not configured yet. Replace the placeholder client id and secret.",
+      "notRegistered": "No account is linked to this Google user. Create one first.",
+      "failed": "Google sign-in failed",
+      "scriptFailed": "Could not load Google. Try again."
     }
   },
   "confirm": {

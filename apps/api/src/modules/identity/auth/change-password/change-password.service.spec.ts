@@ -51,6 +51,21 @@ describe('ChangePasswordService', () => {
         await expect(bcrypt.compare('newPassword1', update.data.passwordHash)).resolves.toBe(true);
     });
 
+    it('rejects a Google account that has no password', async () => {
+        const prisma = {
+            appUser: {
+                findUnique: jest.fn().mockResolvedValue({ id: 'user-1', passwordHash: null }),
+                update: jest.fn(),
+            },
+        };
+        const service = new ChangePasswordService(prisma as never);
+
+        await expect(service.changePassword('user-1', 'oldPassword1', 'newPassword1')).rejects.toThrow(
+            BadRequestException,
+        );
+        expect(prisma.appUser.update).not.toHaveBeenCalled();
+    });
+
     it('fails unauthorized when the user no longer exists', async () => {
         const { service, prisma } = createService('irrelevant');
         prisma.appUser.findUnique.mockResolvedValue(null);

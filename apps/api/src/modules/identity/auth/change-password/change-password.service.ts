@@ -23,6 +23,10 @@ export class ChangePasswordService {
             throw new UnauthorizedException('User not found');
         }
 
+        if (!user.passwordHash) {
+            throw new BadRequestException('This account signs in with Google and has no password');
+        }
+
         const isValid = await bcrypt.compare(currentPassword, user.passwordHash);
         if (!isValid) {
             throw new BadRequestException('Current password is incorrect');

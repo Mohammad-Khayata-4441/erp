@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { ChangePasswordController } from './change-password/change-password.controller';
 import { ChangePasswordService } from './change-password/change-password.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
+import { GoogleAuthService } from './google/google-auth.service';
 import { RolesModule } from './roles/roles.module';
 import { TenantsModule } from '../tenants/tenants.module';
 
@@ -26,7 +27,7 @@ import { TenantsModule } from '../tenants/tenants.module';
         TenantsModule,
     ],
     controllers: [AuthController, ChangePasswordController],
-    providers: [AuthService, ChangePasswordService, JwtStrategy],
+    providers: [AuthService, ChangePasswordService, GoogleAuthService, JwtStrategy],
     exports: [AuthService],
 })
 export class AuthModule {}

@@ -11,6 +11,8 @@
 | `DATABASE_URL` | **Yes** | — | PostgreSQL connection string |
 | `JWT_ACCESS_SECRET` | **Yes** | — | JWT signing secret |
 | `JWT_ACCESS_EXPIRES_IN` | No | `24h` | JWT access token TTL |
+| `GOOGLE_CLIENT_ID` | No | `replace-with-google-oauth-client-id` | Google OAuth web client id. Same value as the dashboard `NEXT_PUBLIC_GOOGLE_CLIENT_ID`. |
+| `GOOGLE_CLIENT_SECRET` | No | `replace-with-google-oauth-client-secret` | Google OAuth client secret. API only. |
 | `JWT_REFRESH_SECRET` | No | — | JWT refresh secret (optional feature) |
 | `JWT_REFRESH_EXPIRES_IN` | No | — | JWT refresh TTL |
 | `BCRYPT_SALT_ROUNDS` | No | `10` | bcrypt work factor |
@@ -35,6 +37,9 @@
 | Variable | Description |
 |----------|-------------|
 | `NEXT_PUBLIC_API_BASE_URL` | API base URL (default: `http://localhost:4040`) |
+| `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | Google OAuth web client id. Placeholder: `replace-with-google-oauth-client-id`. Must match the API `GOOGLE_CLIENT_ID`. |
+
+Google sign-in uses the Identity Services popup. In Google Cloud, create a **Web** OAuth client and add the dashboard origin (for local dev, `http://localhost:3000`) under **Authorized JavaScript origins**. The API exchanges the code with redirect URI `postmessage`; do not put that string in the console. Until the placeholders are replaced, the login and register buttons stay in the UI and the API answers 503.
 
 ### n8n (`apps/n8n/.env`)
 

@@ -544,6 +544,14 @@ export const StockMovementType: {
 
 export type StockMovementType = (typeof StockMovementType)[keyof typeof StockMovementType]
 
+
+export const AuthProvider: {
+  LOCAL: 'LOCAL',
+  GOOGLE: 'GOOGLE'
+};
+
+export type AuthProvider = (typeof AuthProvider)[keyof typeof AuthProvider]
+
 }
 
 export type AccountType = $Enums.AccountType
@@ -633,6 +641,10 @@ export const StockCountStatus: typeof $Enums.StockCountStatus
 export type StockMovementType = $Enums.StockMovementType
 
 export const StockMovementType: typeof $Enums.StockMovementType
+
+export type AuthProvider = $Enums.AuthProvider
+
+export const AuthProvider: typeof $Enums.AuthProvider
 
 /**
  * ##  Prisma Client ʲˢ
@@ -71425,6 +71437,8 @@ export namespace Prisma {
     tenantId: string | null
     email: string | null
     passwordHash: string | null
+    authProvider: $Enums.AuthProvider | null
+    googleSub: string | null
     fullName: string | null
     phone: string | null
     avatarUrl: string | null
@@ -71439,6 +71453,8 @@ export namespace Prisma {
     tenantId: string | null
     email: string | null
     passwordHash: string | null
+    authProvider: $Enums.AuthProvider | null
+    googleSub: string | null
     fullName: string | null
     phone: string | null
     avatarUrl: string | null
@@ -71453,6 +71469,8 @@ export namespace Prisma {
     tenantId: number
     email: number
     passwordHash: number
+    authProvider: number
+    googleSub: number
     fullName: number
     phone: number
     avatarUrl: number
@@ -71469,6 +71487,8 @@ export namespace Prisma {
     tenantId?: true
     email?: true
     passwordHash?: true
+    authProvider?: true
+    googleSub?: true
     fullName?: true
     phone?: true
     avatarUrl?: true
@@ -71483,6 +71503,8 @@ export namespace Prisma {
     tenantId?: true
     email?: true
     passwordHash?: true
+    authProvider?: true
+    googleSub?: true
     fullName?: true
     phone?: true
     avatarUrl?: true
@@ -71497,6 +71519,8 @@ export namespace Prisma {
     tenantId?: true
     email?: true
     passwordHash?: true
+    authProvider?: true
+    googleSub?: true
     fullName?: true
     phone?: true
     avatarUrl?: true
@@ -71583,7 +71607,9 @@ export namespace Prisma {
     id: string
     tenantId: string
     email: string
-    passwordHash: string
+    passwordHash: string | null
+    authProvider: $Enums.AuthProvider
+    googleSub: string | null
     fullName: string
     phone: string | null
     avatarUrl: string | null
@@ -71615,6 +71641,8 @@ export namespace Prisma {
     tenantId?: boolean
     email?: boolean
     passwordHash?: boolean
+    authProvider?: boolean
+    googleSub?: boolean
     fullName?: boolean
     phone?: boolean
     avatarUrl?: boolean
@@ -71632,6 +71660,8 @@ export namespace Prisma {
     tenantId?: boolean
     email?: boolean
     passwordHash?: boolean
+    authProvider?: boolean
+    googleSub?: boolean
     fullName?: boolean
     phone?: boolean
     avatarUrl?: boolean
@@ -71647,6 +71677,8 @@ export namespace Prisma {
     tenantId?: boolean
     email?: boolean
     passwordHash?: boolean
+    authProvider?: boolean
+    googleSub?: boolean
     fullName?: boolean
     phone?: boolean
     avatarUrl?: boolean
@@ -71662,6 +71694,8 @@ export namespace Prisma {
     tenantId?: boolean
     email?: boolean
     passwordHash?: boolean
+    authProvider?: boolean
+    googleSub?: boolean
     fullName?: boolean
     phone?: boolean
     avatarUrl?: boolean
@@ -71671,7 +71705,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type AppUserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "email" | "passwordHash" | "fullName" | "phone" | "avatarUrl" | "isActive" | "lastLoginAt" | "createdAt" | "updatedAt", ExtArgs["result"]["appUser"]>
+  export type AppUserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "email" | "passwordHash" | "authProvider" | "googleSub" | "fullName" | "phone" | "avatarUrl" | "isActive" | "lastLoginAt" | "createdAt" | "updatedAt", ExtArgs["result"]["appUser"]>
   export type AppUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tenant?: boolean | TenantDefaultArgs<ExtArgs>
     userRoles?: boolean | AppUser$userRolesArgs<ExtArgs>
@@ -71694,7 +71728,9 @@ export namespace Prisma {
       id: string
       tenantId: string
       email: string
-      passwordHash: string
+      passwordHash: string | null
+      authProvider: $Enums.AuthProvider
+      googleSub: string | null
       fullName: string
       phone: string | null
       avatarUrl: string | null
@@ -72131,6 +72167,8 @@ export namespace Prisma {
     readonly tenantId: FieldRef<"AppUser", 'String'>
     readonly email: FieldRef<"AppUser", 'String'>
     readonly passwordHash: FieldRef<"AppUser", 'String'>
+    readonly authProvider: FieldRef<"AppUser", 'AuthProvider'>
+    readonly googleSub: FieldRef<"AppUser", 'String'>
     readonly fullName: FieldRef<"AppUser", 'String'>
     readonly phone: FieldRef<"AppUser", 'String'>
     readonly avatarUrl: FieldRef<"AppUser", 'String'>
@@ -78094,6 +78132,8 @@ export namespace Prisma {
     tenantId: 'tenantId',
     email: 'email',
     passwordHash: 'passwordHash',
+    authProvider: 'authProvider',
+    googleSub: 'googleSub',
     fullName: 'fullName',
     phone: 'phone',
     avatarUrl: 'avatarUrl',
@@ -78606,6 +78646,20 @@ export namespace Prisma {
    * Reference to a field of type 'StockMovementType[]'
    */
   export type ListEnumStockMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockMovementType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'AuthProvider'
+   */
+  export type EnumAuthProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthProvider'>
+    
+
+
+  /**
+   * Reference to a field of type 'AuthProvider[]'
+   */
+  export type ListEnumAuthProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthProvider[]'>
     
 
 
@@ -83555,7 +83609,9 @@ export namespace Prisma {
     id?: StringFilter<"AppUser"> | string
     tenantId?: StringFilter<"AppUser"> | string
     email?: StringFilter<"AppUser"> | string
-    passwordHash?: StringFilter<"AppUser"> | string
+    passwordHash?: StringNullableFilter<"AppUser"> | string | null
+    authProvider?: EnumAuthProviderFilter<"AppUser"> | $Enums.AuthProvider
+    googleSub?: StringNullableFilter<"AppUser"> | string | null
     fullName?: StringFilter<"AppUser"> | string
     phone?: StringNullableFilter<"AppUser"> | string | null
     avatarUrl?: StringNullableFilter<"AppUser"> | string | null
@@ -83571,7 +83627,9 @@ export namespace Prisma {
     id?: SortOrder
     tenantId?: SortOrder
     email?: SortOrder
-    passwordHash?: SortOrder
+    passwordHash?: SortOrderInput | SortOrder
+    authProvider?: SortOrder
+    googleSub?: SortOrderInput | SortOrder
     fullName?: SortOrder
     phone?: SortOrderInput | SortOrder
     avatarUrl?: SortOrderInput | SortOrder
@@ -83585,13 +83643,15 @@ export namespace Prisma {
 
   export type AppUserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    googleSub?: string
     tenantId_email?: AppUserTenantIdEmailCompoundUniqueInput
     AND?: AppUserWhereInput | AppUserWhereInput[]
     OR?: AppUserWhereInput[]
     NOT?: AppUserWhereInput | AppUserWhereInput[]
     tenantId?: StringFilter<"AppUser"> | string
     email?: StringFilter<"AppUser"> | string
-    passwordHash?: StringFilter<"AppUser"> | string
+    passwordHash?: StringNullableFilter<"AppUser"> | string | null
+    authProvider?: EnumAuthProviderFilter<"AppUser"> | $Enums.AuthProvider
     fullName?: StringFilter<"AppUser"> | string
     phone?: StringNullableFilter<"AppUser"> | string | null
     avatarUrl?: StringNullableFilter<"AppUser"> | string | null
@@ -83601,13 +83661,15 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"AppUser"> | Date | string
     tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
     userRoles?: UserRoleListRelationFilter
-  }, "id" | "tenantId_email">
+  }, "id" | "googleSub" | "tenantId_email">
 
   export type AppUserOrderByWithAggregationInput = {
     id?: SortOrder
     tenantId?: SortOrder
     email?: SortOrder
-    passwordHash?: SortOrder
+    passwordHash?: SortOrderInput | SortOrder
+    authProvider?: SortOrder
+    googleSub?: SortOrderInput | SortOrder
     fullName?: SortOrder
     phone?: SortOrderInput | SortOrder
     avatarUrl?: SortOrderInput | SortOrder
@@ -83627,7 +83689,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"AppUser"> | string
     tenantId?: StringWithAggregatesFilter<"AppUser"> | string
     email?: StringWithAggregatesFilter<"AppUser"> | string
-    passwordHash?: StringWithAggregatesFilter<"AppUser"> | string
+    passwordHash?: StringNullableWithAggregatesFilter<"AppUser"> | string | null
+    authProvider?: EnumAuthProviderWithAggregatesFilter<"AppUser"> | $Enums.AuthProvider
+    googleSub?: StringNullableWithAggregatesFilter<"AppUser"> | string | null
     fullName?: StringWithAggregatesFilter<"AppUser"> | string
     phone?: StringNullableWithAggregatesFilter<"AppUser"> | string | null
     avatarUrl?: StringNullableWithAggregatesFilter<"AppUser"> | string | null
@@ -89193,7 +89257,9 @@ export namespace Prisma {
   export type AppUserCreateInput = {
     id?: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -89209,7 +89275,9 @@ export namespace Prisma {
     id?: string
     tenantId: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -89223,7 +89291,9 @@ export namespace Prisma {
   export type AppUserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -89239,7 +89309,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -89254,7 +89326,9 @@ export namespace Prisma {
     id?: string
     tenantId: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -89267,7 +89341,9 @@ export namespace Prisma {
   export type AppUserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -89281,7 +89357,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -93442,6 +93520,13 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type EnumAuthProviderFilter<$PrismaModel = never> = {
+    equals?: $Enums.AuthProvider | EnumAuthProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumAuthProviderFilter<$PrismaModel> | $Enums.AuthProvider
+  }
+
   export type UserRoleListRelationFilter = {
     every?: UserRoleWhereInput
     some?: UserRoleWhereInput
@@ -93462,6 +93547,8 @@ export namespace Prisma {
     tenantId?: SortOrder
     email?: SortOrder
     passwordHash?: SortOrder
+    authProvider?: SortOrder
+    googleSub?: SortOrder
     fullName?: SortOrder
     phone?: SortOrder
     avatarUrl?: SortOrder
@@ -93476,6 +93563,8 @@ export namespace Prisma {
     tenantId?: SortOrder
     email?: SortOrder
     passwordHash?: SortOrder
+    authProvider?: SortOrder
+    googleSub?: SortOrder
     fullName?: SortOrder
     phone?: SortOrder
     avatarUrl?: SortOrder
@@ -93490,6 +93579,8 @@ export namespace Prisma {
     tenantId?: SortOrder
     email?: SortOrder
     passwordHash?: SortOrder
+    authProvider?: SortOrder
+    googleSub?: SortOrder
     fullName?: SortOrder
     phone?: SortOrder
     avatarUrl?: SortOrder
@@ -93497,6 +93588,16 @@ export namespace Prisma {
     lastLoginAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type EnumAuthProviderWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AuthProvider | EnumAuthProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumAuthProviderWithAggregatesFilter<$PrismaModel> | $Enums.AuthProvider
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAuthProviderFilter<$PrismaModel>
+    _max?: NestedEnumAuthProviderFilter<$PrismaModel>
   }
 
   export type RoleCountOrderByAggregateInput = {
@@ -100699,6 +100800,10 @@ export namespace Prisma {
     connect?: UserRoleWhereUniqueInput | UserRoleWhereUniqueInput[]
   }
 
+  export type EnumAuthProviderFieldUpdateOperationsInput = {
+    set?: $Enums.AuthProvider
+  }
+
   export type TenantUpdateOneRequiredWithoutUsersNestedInput = {
     create?: XOR<TenantCreateWithoutUsersInput, TenantUncheckedCreateWithoutUsersInput>
     connectOrCreate?: TenantCreateOrConnectWithoutUsersInput
@@ -101860,6 +101965,23 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumStockMovementTypeFilter<$PrismaModel>
     _max?: NestedEnumStockMovementTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumAuthProviderFilter<$PrismaModel = never> = {
+    equals?: $Enums.AuthProvider | EnumAuthProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumAuthProviderFilter<$PrismaModel> | $Enums.AuthProvider
+  }
+
+  export type NestedEnumAuthProviderWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.AuthProvider | EnumAuthProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.AuthProvider[] | ListEnumAuthProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumAuthProviderWithAggregatesFilter<$PrismaModel> | $Enums.AuthProvider
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumAuthProviderFilter<$PrismaModel>
+    _max?: NestedEnumAuthProviderFilter<$PrismaModel>
   }
 
   export type TenantCreateWithoutChartOfAccountsInput = {
@@ -124873,7 +124995,9 @@ export namespace Prisma {
   export type AppUserCreateWithoutTenantInput = {
     id?: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -124887,7 +125011,9 @@ export namespace Prisma {
   export type AppUserUncheckedCreateWithoutTenantInput = {
     id?: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -126507,7 +126633,9 @@ export namespace Prisma {
     id?: StringFilter<"AppUser"> | string
     tenantId?: StringFilter<"AppUser"> | string
     email?: StringFilter<"AppUser"> | string
-    passwordHash?: StringFilter<"AppUser"> | string
+    passwordHash?: StringNullableFilter<"AppUser"> | string | null
+    authProvider?: EnumAuthProviderFilter<"AppUser"> | $Enums.AuthProvider
+    googleSub?: StringNullableFilter<"AppUser"> | string | null
     fullName?: StringFilter<"AppUser"> | string
     phone?: StringNullableFilter<"AppUser"> | string | null
     avatarUrl?: StringNullableFilter<"AppUser"> | string | null
@@ -128510,7 +128638,9 @@ export namespace Prisma {
   export type AppUserCreateWithoutUserRolesInput = {
     id?: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -128525,7 +128655,9 @@ export namespace Prisma {
     id?: string
     tenantId: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -128581,7 +128713,9 @@ export namespace Prisma {
   export type AppUserUpdateWithoutUserRolesInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -128596,7 +128730,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -134962,7 +135098,9 @@ export namespace Prisma {
   export type AppUserCreateManyTenantInput = {
     id?: string
     email: string
-    passwordHash: string
+    passwordHash?: string | null
+    authProvider?: $Enums.AuthProvider
+    googleSub?: string | null
     fullName: string
     phone?: string | null
     avatarUrl?: string | null
@@ -135429,7 +135567,9 @@ export namespace Prisma {
   export type AppUserUpdateWithoutTenantInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -135443,7 +135583,9 @@ export namespace Prisma {
   export type AppUserUncheckedUpdateWithoutTenantInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -135457,7 +135599,9 @@ export namespace Prisma {
   export type AppUserUncheckedUpdateManyWithoutTenantInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    passwordHash?: StringFieldUpdateOperationsInput | string
+    passwordHash?: NullableStringFieldUpdateOperationsInput | string | null
+    authProvider?: EnumAuthProviderFieldUpdateOperationsInput | $Enums.AuthProvider
+    googleSub?: NullableStringFieldUpdateOperationsInput | string | null
     fullName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
